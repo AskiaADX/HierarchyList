@@ -1,0 +1,93 @@
+#hierarchy_search_container_{%= CurrentADC.InstanceId%} {
+    font-size: {%= Theme.NormalFS %};
+}
+#hierarchy_search_container_{%= CurrentADC.InstanceId%} input,
+#hierarchy_search_container_{%= CurrentADC.InstanceId%} ul {
+    width : {%:= CurrentADC.PropValue("inputsWidth")%};
+    background-color: rgba({%:= Theme.WhiteColor %});
+    color: rgba({%:= Theme.BlackColor %});
+	padding: 5px;
+	border-radius: {%:= Theme.BorderRadius %};
+    border: {%:= Theme.BorderWidth %} solid rgba({%:= Theme.NeutralColor %});
+	outline: none !important;
+}
+#hierarchy_search_container_{%= CurrentADC.InstanceId%} ul {
+    overflow: auto;
+    height: {%:= CurrentADC.PropValue("heightList")%};
+}
+#hierarchy_search_container_{%= CurrentADC.InstanceId%} ul > li {
+    background-color: rgba({%:= Theme.WhiteColor %});
+    color: rgba({%:= Theme.BlackColor %});
+	padding: 5px;
+	border-radius: {%:= Theme.BorderRadius %};
+    border: 0 solid transparent;
+	outline: none !important;
+    cursor:pointer;
+}
+#hierarchy_search_container_{%= CurrentADC.InstanceId%} ul > li[selected="selected"] {
+    background-color: rgba({%:= Theme.SecondaryColor %}) !important;
+    color: rgba({%:= Theme.WhiteColor %}) !important;
+}
+ul:-internal-list-box:disabled li:checked {
+    background-color: transparent !important;
+    color: rgba({%:= Theme.BlackColor %}) !important;
+}
+ul:-internal-list-box li:checked:disabled {
+    background-color: transparent !important;
+    color: rgba({%:= Theme.BlackColor %}) !important;
+}
+li:disabled {
+    background-color: transparent !important;
+    color: rgba({%:= Theme.BlackColor %}) !important;
+}
+li[disabled='disabled']::-ms-value,
+li[disabled='disabled']:checked::-ms-value {
+    background: transparent !important;
+    background-color: transparent !important;
+    color: rgba({%:= Theme.BlackColor %}) !important;
+}
+li[disabled='disabled'],
+li[disabled='disabled']:checked {
+    background: transparent !important;
+    background-color: transparent !important;
+    color: rgba({%:= Theme.BlackColor %}) !important;
+}
+li[disabled] {
+    background-color: transparent !important;
+    color: rgba({%:= Theme.BlackColor %}) !important;
+}
+#hierarchy_search_container_{%= CurrentADC.InstanceId%} input:focus, 
+#hierarchy_search_container_{%= CurrentADC.InstanceId%} ul:focus {
+	outline: none !important;
+}
+{% If ((Browser.Support("touch") = False) and (Browser.Support("javascript"))) Then %}
+#hierarchy_search_container_{%= CurrentADC.InstanceId%} li:hover {
+    background-color: rgba({%:= Theme.BlackColor.ToRGB() %},0.1);
+    color: rgba({%:= Theme.BlackColor %});
+}
+{% EndIf %}
+#hierarchy_search_container_{%= CurrentADC.InstanceId%} li:selected, 
+#hierarchy_search_container_{%= CurrentADC.InstanceId%} li:checked, 
+#hierarchy_search_container_{%= CurrentADC.InstanceId%} ul li:selected, 
+#hierarchy_search_container_{%= CurrentADC.InstanceId%} ul li:checked {
+    background-color: rgba({%:= Theme.SecondaryColor %});
+    color: rgba({%:= Theme.WhiteColor %});
+}
+button.close-icon:after {
+    color: rgba({%= Theme.BlackColor %});
+}
+{% if CurrentADC.PropValue("orientation").ToNumber() = 1 Then %}
+#hierarchy_search_container_{%= CurrentADC.InstanceId%} input::-ms-clear,
+#hierarchy_search_container_{%= CurrentADC.InstanceId%} input::-ms-reveal {
+    display:none;
+    height:0;
+    width: 0;
+}
+#hierarchy_search_container_{%= CurrentADC.InstanceId%}  .hierarchy-search-result-container div {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: {%:= CurrentADC.PropValue("horizontalSpace")%};
+    *zoom : 1;
+    *display : inline;
+}
+{% End if %}

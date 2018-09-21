@@ -1,0 +1,88 @@
+.hierarchylist-search label {
+    display:block;
+}
+.hierarchylist-search .hide {
+    display:none !important;
+}
+
+.hierarchylist-search a {
+  color:inherit;
+  text-decoration: none;
+ }
+.hierarchy,
+.hierarchylist-search .hierarchy-search-input-container {
+    position: relative;
+}
+[type="search"],
+[type="text"],
+[type="number"] {
+    -webkit-appearance: none;
+}
+
+li,
+li:-internal-spatial-navigation-focus,
+li:disabled,
+ul,
+ul:-internal-list-box,
+ul:-internal-list-box hr,
+ul:-internal-list-box optgroup,
+ul:-internal-list-box optgroup li:before,
+ul:-internal-list-box li,
+ul:-internal-list-box li:checked,
+ul:-internal-list-box li:checked:disabled,
+ul:-internal-list-box:disabled li:checked,
+ul:-internal-list-box:focus li:checked,
+ul:-internal-list-box:focus li:checked:disabled,
+ul:-webkit-autofill,
+ul:disabled,
+ul:focus,
+ul:not(:-internal-list-box),
+ul[disabled]>li {
+     all: unset;
+}
+
+.hierarchylist-search li[value="0"] {
+    font-style: italic;
+}
+.hierarchylist-search li[value="0"]:hover {
+    background-color: transparent !important;
+}
+button.close-icon:after {
+    content: "X";
+    display: block;
+    background-color: transparent;
+    z-index: 1;
+    right: 5px;
+    top: -15px;
+    bottom: 0;
+    margin: auto;
+    padding: 2px;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    font-weight: normal;
+    font-size: 12px;
+    /* box-shadow: 0 0 2px #E50F0F; */
+    cursor: pointer;
+}
+
+button.close-icon {
+    border: 1px solid transparent;
+    background-color: transparent;
+    display: inline-block;
+    vertical-align: middle;
+    outline: 0;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+input[type=search]::-ms-clear {  display: none; width : 0; height: 0; }
+input[type=search]::-ms-reveal {  display: none; width : 0; height: 0; }
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }

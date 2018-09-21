@@ -1,0 +1,32 @@
+{%
+dim id = CurrentADC.InstanceId
+dim arrLevels = CurrentADC.PropValue("levelNames").Split(",")
+dim i
+dim divAttr = ""
+dim inputAttr = ""
+If CurrentADC.PropValue("visibility") = "hide" Then
+   divAttr = "class=\"hide\""
+ElseIf CurrentADC.PropValue("visibility") = "disabled" Then
+   divAttr = "disabled=\"disabled\""
+   inputAttr = divAttr
+EndIf
+%}
+<div class="hierarchylist-search askia-question-{%= CurrentQuestion.InputCode %}" id="hierarchy_search_container_{%= id%}">
+    {% If CurrentADC.PropValue("useSearch") = "1" or CurrentADC.PropValue("useSearch") = "3" Then %}
+    <div class="hierarchy-search-input-container">
+        <label for="hierarchy_search_{%= id %}">{%:= CurrentADC.PropValue("searchLabel")%}</label>
+        {% If CurrentADC.PropValue("useSearch") = "3" and CurrentADC.PropValue("filterFirstLevel") <> "" Then %}
+        <input type="search" id="hierarchy_filtered_search_{%= id %}" autocomplete="off" style="display:none;" />
+        {% EndIf %}
+        <input type="search" id="hierarchy_search_{%= id %}" autocomplete="off" />
+    </div>
+    {% EndIf %}
+    <div class="hierarchy-search-result-container">
+        {% For i = 1 To arrLevels.Count %}
+        <div {%:= On(i > 1, divAttr, "")%}>
+            <label for="hierarchy_level_{%= id %}_{%= (i - 1) %}">{%:= arrLevels[i].Replace("\"", "")%}</label>
+            <ul id="hierarchy_level_{%= id %}_{%= (i - 1) %}" {%:= On(i > 1, inputAttr, "")%}></ul>
+        </div>
+        {% Next %}
+    </div>
+</div>

@@ -1,0 +1,7 @@
+How to use it:
+
+First we need to transform the database to a JSON format using this tool (http://www.askia.com/Downloads/dev/adc/hierarchy/CSVConverter.html).
+
+Imagine we got a database like this:
+
+"brand_id", "brand", "model_id", "model", "version_id", "version"

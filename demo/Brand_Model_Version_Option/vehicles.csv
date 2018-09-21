@@ -1,0 +1,65 @@
+brand_id,brand,model_id,model,model_code,version_id,version,option_id,option,id,code
+1,CITROEN,7,C2,Mo1,24,VU,1,CDV,1,A1
+1,CITROEN,9,C4,Mo1,24,VU,1,CDV,2,A2
+1,CITROEN,8,C3,Mo1,24,VU,1,CDV,3,A3
+1,CITROEN,4,Berlingo,Mo4,13,normal,3,PBV,4,A4
+1,CITROEN,27,Jumper,Mo5,13,normal,2,LCV,5,A5
+1,CITROEN,27,Jumper,Mo5,7,combi,2,LCV,6,A6
+1,CITROEN,28,Jumpy,Mo7,13,normal,2,LCV,7,A7
+1,CITROEN,28,Jumpy,Mo7,7,combi,2,LCV,8,A8
+1,CITROEN,4,Berlingo,Mo4,19,van,3,PBV,9,A9
+1,CITROEN,34,Nemo,Mo10,19,van,3,PBV,10,A10
+2,FIAT,20,Ducato 30,Mo11,19,van,2,LCV,11,A11
+2,FIAT,21,Ducato 33,Mo11,19,van,2,LCV,12,A12
+2,FIAT,22,Ducato 35,Mo11,10,light van,2,LCV,13,A13
+2,FIAT,23,Ducato Maxi,Mo11,21,Van 35,2,LCV,14,A14
+2,FIAT,19,Doblo,Mo15,5,cargo,3,PBV,15,A15
+2,FIAT,19,Doblo,Mo15,12,maxi,3,PBV,16,A16
+2,FIAT,38,Scudo,Mo17,19,van,2,LCV,17,A17
+2,FIAT,38,Scudo,Mo17,7,combi,2,LCV,18,A18
+2,FIAT,25,Fiorino,Mo19,3,all,3,PBV,19,A19
+3,FORD,37,Ranger,Mo20,13,normal,4,Pick Up,20,A20
+3,FORD,14,Connect,Mo21,14,short,3,PBV,21,A21
+3,FORD,14,Connect,Mo21,11,long,3,PBV,22,A22
+3,FORD,42,Transit,Mo23,19,van,2,LCV,23,A23
+3,FORD,42,Transit,Mo23,13,normal,2,LCV,24,A24
+3,FORD,42,Transit,Mo23,4,autre,2,LCV,25,A25
+4,IVECO,17,Daily cab :,Mo26,1,29L / 35S,2,LCV,26,A26
+4,IVECO,17,Daily cab :,Mo26,2,40C / 45C,2,LCV,27,A27
+4,IVECO,18,Daily van,Mo28,15,single wheel :,2,LCV,28,A28
+4,IVECO,18,Daily van,Mo28,18,twin wheel :,2,LCV,29,A29
+5,MERCEDES,44,Vito,Mo30,13,normal,2,LCV,30,A30
+5,MERCEDES,39,Sprinter,Mo31,13,normal,2,LCV,31,A31
+6,MITSUBISHI,32,Mitsubishi,Mo32,9,L 200,4,Pick Up,32,A32
+6,MITSUBISHI,12,Canter,Mo33,13,normal,2,LCV,33,A33
+7,NISSAN,26,Interstar,Mo34,13,normal,2,LCV,34,A34
+7,NISSAN,36,Primastar,Mo35,13,normal,2,LCV,35,A35
+7,NISSAN,10,Cabstar,Mo36,13,normal,2,LCV,36,A36
+7,NISSAN,3,Atleon,Mo37,13,normal,2,LCV,37,A37
+8,OPEL,15,Corsa,Mo38,19,van,1,CDV,38,A38
+8,OPEL,33,Movano,Mo39,13,normal,2,LCV,39,A39
+8,OPEL,45,Vivaro,Mo40,19,van,2,LCV,40,A40
+8,OPEL,45,Vivaro,Mo40,7,combi,2,LCV,41,A41
+8,OPEL,13,Combo,Mo42,19,van,3,PBV,42,A42
+9,PEUGEOT,35,Partner,Mo43,13,normal,3,PBV,43,A43
+9,PEUGEOT,35,Partner,Mo43,7,combi,3,PBV,44,A44
+9,PEUGEOT,6,Boxer,Mo45,13,normal,2,LCV,45,A45
+9,PEUGEOT,24,Expert,Mo46,13,normal,2,LCV,46,A46
+9,PEUGEOT,24,Expert,Mo46,7,combi,2,LCV,47,A47
+9,PEUGEOT,35,Partner,Mo43,19,van,3,PBV,48,A48
+9,PEUGEOT,35,Partner,Mo43,7,combi,3,PBV,49,A49
+9,PEUGEOT,1,207 VU,Mo50,13,normal,1,CDV,50,A50
+9,PEUGEOT,2,308 VU,Mo51,13,normal,1,CDV,51,A51
+9,PEUGEOT,5,Bipper,Mo52,19,van,3,PBV,52,A52
+10,RENAULT,30,Master,Mo53,20,van + combi,2,LCV,53,A53
+10,RENAULT,30,Master,Mo53,6,chassis,2,LCV,54,A54
+10,RENAULT,41,Trafic,Mo55,19,van,2,LCV,55,A55
+10,RENAULT,41,Trafic,Mo55,7,combi,2,LCV,56,A56
+10,RENAULT,29,Kangoo,Mo57,23,van petrol,3,PBV,57,A57
+10,RENAULT,29,Kangoo,Mo57,22,van diesel,3,PBV,58,A58
+11,RENAULT TRUCKS,31,Maxity,Mo59,13,normal,2,LCV,59,A59
+12,TOYOTA,40,Toyota,Mo60,8,Hi Lux,4,Pick Up,60,A60
+13,VOLKSWAGEN,43,Transporter,Mo61,16,T5 combi / bus,2,LCV,61,A61
+13,VOLKSWAGEN,43,Transporter,Mo61,17,T5 panel van,2,LCV,62,A62
+13,VOLKSWAGEN,11,Caddy,Mo63,19,van,3,PBV,63,A63
+13,VOLKSWAGEN,16,Crafter,Mo64,13,normal,2,LCV,64,A64

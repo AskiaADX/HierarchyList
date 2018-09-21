@@ -1,0 +1,130 @@
+﻿<!doctype html>
+<html>
+	<head>
+	    <title>Hierarchy ADC - CSV Converter</title>
+	    <style type="text/css">
+    	    textarea {
+    	        width:500px;
+    	        height:150px;
+    	    }
+    	    .left, .right {
+    	        float: left;
+    	        margin: 15px;
+    	        padding: 15px;
+    	        border: 1px solid #444444;
+    	    }
+            #level_details {
+                display:none;
+            }
+            #level_details_link {
+                font-size: 0.8em;
+                display: inline-block;
+                padding-left:10px;
+            }
+
+            .right > div {
+                margin-bottom: 15px;
+            }
+    	    label {
+    	        display: block;
+    	        font-weight: bold;
+    	    }
+            .right input[type=text] {
+                font-size:12px;
+                width : 500px;
+            }
+            .right table input[type=text] {
+                width : 120px;
+            }
+            .right table th {
+                min-width : 120px;
+            }
+            .right table tbody tr:nth-child(odd) {
+                background: #dddddd;
+            }
+    	    .command {
+    	        margin-top: 10px;
+    	        margin-bottom: 10px;
+    	    }
+    	    .command input {
+    	        font-size: 18px;
+    	    }
+            .inline {
+                display: inline;
+            }
+    	</style>
+	</head>
+    <body>
+        <h1>ADC Hierarchy - CSV Converter</h1>
+        <p>
+            This page format a CSV content to a Javascript database for the Hierarchy ADC.<br/>
+            Save the result of this page into a Javascript file (.js extension)
+        </p>
+        <div class="left">
+            <div>
+                <label for="csv">CSV:</label>   
+                <textarea id="csv"></textarea>
+                <br/>
+                <label for="separator" class="inline">Separator</label>
+                <select id="separator">
+                    <option value=",">Coma (,)</option>
+                    <option value=";">Semi-colon (;)</option>
+                </select>
+            </div>
+
+            <div class="command">
+                <input type="button" id="run" value="Run"/>    
+            </div>
+
+        </div>
+        <div class="right">
+            <h4>Levels <a href="#" id="level_details_link">show details &gt;&gt;</a></h4>
+
+            <div id="level_details">
+                <p>
+                    Levels specify the fields which contains the unique identifier and the name of each level.
+                </p>
+                <p>
+                    For example, if you have a CSV with the following fields:<br /><br/>
+                    <code>"brand_id", "brand", "model_id", "model", "version_id", "version"</code><br /><br />
+                    You can then specify each brand / model / version using:
+                </p>
+                <ul>
+                    <li>Level 1: id = brand_id, name = brand</li>
+                    <li>Level 2: id = model_id, name = model</li>
+                    <li>Level 3: id = version_id, name = version</li>
+                </ul>
+                <h5>Live values</h5>
+                <p>
+                    Indicates the fields value you want to save during the selection at each level.<br/>
+                    Using the `live values` the respondent could partially select information without to fill each levels.<br/>
+                    The last level will save all the field specified in the `Values to save` property of the ADC.<br/>
+                    Enter each name of fields separate with coma.
+                </p>
+                <p>
+                    Related to the above example, respondent could only select `brand` and `model` without to select `version`.<br/>
+                    In that case speecified the following information:
+                </p>
+                <ul>
+                    <li>Level 1: id = brand_id, name = brand, live values = brand_id</li>
+                    <li>Level 2: id = model_id, name = model, live values = model_id</li>
+                </ul>
+            </div>
+            <div>
+                <label for="databaseName">Name the database:</label>
+                <input type="text" id="databaseName" value="" />
+            </div>
+            <div>
+                <table>
+                    <thead>
+                        <tr><th></th><th>Id</th><th>Name</th><th>Live values</th><th></th></tr>
+                    </thead>
+                    <tbody  id="levels"></tbody>
+                </table>
+            </div>
+
+        </div>
+        
+        <script src="CSVConverter.js"></script>
+    </body>
+</html>

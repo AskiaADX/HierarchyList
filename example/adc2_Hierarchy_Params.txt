@@ -1,0 +1,192 @@
+<table class="askiaadctable">
+<tbody>
+<tr>
+<td class="askiaadctdheader">Parameters</td>
+<td class="askiaadctdheader">Type</td>
+<td class="askiaadctdheader">Comments and/or possible value</td>
+</tr>
+<tr>
+<td class="askiaadccategory" colspan="3"><strong>General</strong></td>
+</tr>
+<tr>
+<td class="askiaadctdname">Javascript database file path</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">??ResPath??yourjsonfile.js<br /> [REQUIRE]<br /> Path of the Javascript database file to include in the document.<br /> This property is dynamic, we recommend the usage of the ??ResPath?? and include the javascript file in the survey resources.<br /><br /> The file must be generated with <br /> <a href="http://www.askia.com/Downloads/dev/adc/hierarchy/CSVConverter.html" target="_blank">http://www.askia.com/Downloads/dev/adc/hierarchy/CSVConverter.html</a><br /><br /> It contains the following code format:<br /><br /> Hierarchy.databases["name_of_database"] = {/* Database information */ };<br /><br /> Example:<br /><br />
+<pre>       Hierarchy.databases["vehicles"] = {
+           /* Definition of levels */
+           "levels" : [
+               {
+                   "id" : "brand_id",
+                   "name" : "brand",
+                   "liveValues" : ["brand_id"]
+               },
+               {
+                    "id" : "model_id",
+                    "name" : "model",
+                    "liveValues" : ["model_id", "model_code"]
+               },
+               {
+                    "id" : "version_id",
+                    "name" : "version"
+               },
+               {
+                    "id" : "option_id",
+                    "name" : "option"
+               }
+           ],
+           /* Map name / index of table headers */
+           "header" : {
+               "brand_id" : 0, 
+               "brand" : 1, 
+               "model_id" : 2, 
+               "model" : 3, 
+               "model_code" : 4, 
+               "version_id" : 5, 
+               "version" : 6, 
+               "option_id" : 7, 
+               "option" : 8, 
+               "id" : 9, 
+               "code" : 10
+           }, 
+           /* Records. Array of lines which contains an array of columns 
+              lines[columns[]] 
+           */
+           "records" : [
+               ["1", "CITROEN", "7", "C2", "Mo1", "24", "VU", "1", "CDV", "1", "A1"],
+               ["1", "CITROEN", "9", "C4", "Mo1", "24", "VU", "1", "CDV", "2", "A2"],
+               ["1", "CITROEN", "8", "C3", "Mo1", "24", "VU", "1", "CDV", "3", "A3"],
+               ["2", "FIAT", "20", "Ducato 30", "Mo11", "19", "van", "2", "LCV", "11", "A11"],
+               ["2", "FIAT", "21", "Ducato 33", "Mo11", "19", "van", "2", "LCV", "12", "A12"],
+               ["2", "FIAT", "22", "Ducato 35", "Mo11", "10", "light van", "2", "LCV", "13", "A13"]
+           ]
+       };
+</pre>
+</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Database name</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">vehicles<br /> [REQUIRE]<br /> Name of the database as it appear in the Javascript database file</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Values to save</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">[REQUIRE]<br /> Name of fields separate with coma and surround by quotes or double-quotes.<br /> It indicates the fields to save on the latest level selection.<br /><br /> Example:<br />
+<pre>"id", "code", "brand_id", "model_id", "model_code", "version_id", "option_id"
+</pre>
+</td>
+</tr>
+<tr>
+<td class="askiaadctdname">HTML Ids prefix</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">
+<p>[OPTIONAL]<br /> Prefix of all HTML input Ids where the values will be saved.<br /> It may be use if you have several instance of the Hierarchy ADC into the same page.<br /><br /> Example:<br /><br /> - If the field to save is "brand_id" and the prefix is "vehicle_", you must have a HTML input in your page with the id="vehicle_brand_id"</p>
+<p>- If you use the control in a loop, you will need to have a different prefix for each iteration. You can use for instance !!CI(1)!!, so if the field to save is "brand_id" and the prefix is "vehicle!!CI(1)!!_", you must have a HTML input in your page with the id="vehicle!!CI(1)!!_brand_id"</p>
+</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Display name of levels</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">[REQUIRE]<br /> Label of the dropdown for each levels.<br /> Each level must have a display names even if it's an empty name.<br /> All names must be surrounded by a double-quotes and separate with coma.<br /><br /> It is require to generate the right number of dropdown<br /><br /> Example:<br />
+<pre>"Brands", "Models", "Versions"</pre>
+or if you have four levels<br />
+<pre>"", "", "", ""</pre>
+</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Text of first dropdown options</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">[OPTIONAL]<br /> Text of the first dropdown options for each levels.<br /> All textes must be surrounded by a double-quotes and separate with coma.<br /><br /> Example:<br />
+<pre>"Please select a brands", "Please select a models", "Please select a versions"
+</pre>
+Note: This option is used only if you set the "Dropdown size" parameter to 1 to show the levels as dropdown and not as list.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Orientation</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">Vertical or Horizontal<br /> Define if the different levels should be shown vertically or horizontally.<br /> Default: Vertical</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Horizontal space</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">[REQUIRE]<br /> Size of the horizontal space between dropdown (pixel by default).<br /> Works with the horizontal orientation<br /> Default: 15px</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Width of inputs</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">[REQUIRE]<br /> Indicates the width (including the unit) to use for the both the search input and the dropdown list.<br /><br /> Default: 300px<br /><br /> You can also use other units, for instance 100%.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Dropdown size</td>
+<td class="askiaadctd">Number</td>
+<td class="askiaadctd">[REQUIRE]<br /> Indicates the size of the dropdown list. It's the number of options visible before the scroll.<br /><br /> Default: 10<br /><br /> Note, if you want to use a dropdown menu instead of a list then set it to 1.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Not supported browser text</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">[REQUIRE]<br /> Message to display to the non-supported browser<br /><br /> Default: Sorry this page uses Javascript code, please enable it</td>
+</tr>
+<tr>
+<td class="askiaadccategory" colspan="3"><strong>Search</strong></td>
+</tr>
+<tr>
+<td class="askiaadctdname">Use search</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">[OPTIONAL]<br /> Yes or No<br /> Add the input search<br /><br /> Default: Yes</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Label of search input</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">[OPTIONAL]<br /> Text to use in the label of the search input.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Search fields</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">[OPTIONAL]<br /> Name of fields separate with coma and surround by quotes or double-quotes.<br /> It's require when using search.<br /> It indicates in which fields to search.<br /><br /> Example:<br />
+<pre>"brand", "model"
+</pre>
+</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Search at beginning</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">[OPTIONAL]<br /> Search at the beginning of the field value<br /><br /> Default: Yes</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Separator of words in input search</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">
+<p>[OPTIONAL]<br /> Separator of words in the input search.<br /><br /> Example:<br /><br /> If the separator is "+", the respondent have to enter it to search in different places:<br /><br /> "citroen + c2"</p>
+<p>Will search "citroen" AND "c2"<br /><br /> Default: +</p>
+</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Min characters</td>
+<td class="askiaadctd">Number</td>
+<td class="askiaadctd">[REQUIRE]<br /> Minimum number of characters entered before to trigger the search.<br /><br /> Default: 2<br /><br /> Note, if you set 0 then the value used will be the default one (2) so set a number &gt;= 1</td>
+</tr>
+<tr>
+<td class="askiaadccategory" colspan="3"><strong>Behaviours</strong></td>
+</tr>
+<tr>
+<td class="askiaadctdname">Display first level items</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">Yes or No<br /> Display first level items<br /><br /> Default: No</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Auto select when 1 result found</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">Yes or No<br /> Auto select when only one result is found<br /><br /> Default: No</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Sub-levels visibility</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">Visibility of sub-levels when not activated.<br /><br /> It could be: "Visible", "Hidden" or "Disabled"<br /><br /> Default: Visible</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Max results</td>
+<td class="askiaadctd">Number</td>
+<td class="askiaadctd">Maximum number of results to display in the dropdown.<br /> Set 0 for unlimited results.<br /><br /> This option is useful if you have a huge database.<br /><br /> Default: 0</td>
+</tr>
+</tbody>
+</table>

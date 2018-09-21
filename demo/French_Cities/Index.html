@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Demo Hierarchy</title>
+        <style type="text/css">
+            #hierarchy_search_container_1 input,
+            #hierarchy_search_container_1 select {
+                width : 300px;
+            }
+
+            .hierarchy-search label {
+                display:block;
+            }
+            .hierarchy-search .hide {
+                display:none !important;
+            }
+            .results {
+                display:block;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <h1>French cities</h1>
+
+        <div class="hierarchy-search" id="hierarchy_search_container_1">
+            <div class="hierarchy-search-input-container">
+                <label for="hierarchy_search_1">Search:</label>
+                <input type="search" id="hierarchy_search_1" />
+            </div>
+            <div class="hierarchy-search-result-container">
+                <div>
+                    <label for="hierarchy_level_1_0">City:</label>
+                    <select id="hierarchy_level_1_0" size="10"></select>
+                </div>
+            </div>
+        </div>
+
+        <div id="result_adc_1" class="results">
+            <div>
+                <label for="city_INSEE">Code:</label>
+                <input type="text" id="city_INSEE" value="" />
+            </div>
+            <div>
+                <label for="city_DEP">Dept:</label>
+                <input type="text" id="city_DEP" value="" />
+            </div>
+            <div>
+                <label for="city_VILLE">City:</label>
+                <input type="text" id="city_VILLE" value="" />
+            </div>
+            <div>
+                <label for="city_CP">Postal code:</label>
+                <input type="text" id="city_CP" value=""/>
+            </div>
+        </div>
+
+        <script src="../../resources/static/hierarchy.js"></script>
+        <script src="database.js"></script>
+        <script type="text/javascript">
+            (function(){
+                var cities = new Hierarchy({
+                    database : Hierarchy.databases["french_cities"],
+                    prefix     : "city_",
+                    searchIn   : ["DEP", "VILLE"],
+                    values     : ["INSEE", "DEP", "VILLE", "CP"],
+                    firstLevelVisible : true,
+                    useSearch  : true,
+                    minChars   : 2,
+                    instanceId : 1,
+                    maxResults : 7000,
+                    autoSelect : true,
+                    searchAtBeginning : true,
+                    searchSeparator : '+'
+                });
+            }());
+        </script>
+    </body>
+</html>

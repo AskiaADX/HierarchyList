@@ -1,0 +1,609 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Demo Hierarchy</title>
+        <style type="text/css">
+            #hierarchy_search_container_1 input,
+            #hierarchy_search_container_1 select {
+                width : 300px;
+            }
+
+            #hierarchy_search_container_7 input,
+            #hierarchy_search_container_7 select {
+                width : 300px;
+            }
+
+            #hierarchy_search_container_2 input,
+            #hierarchy_search_container_2 select {
+                width : 300px;
+            }
+
+            #hierarchy_search_container_3 input,
+            #hierarchy_search_container_3 select {
+                width : 300px;
+            }
+
+            #hierarchy_search_container_4 input,
+            #hierarchy_search_container_4 select {
+                width : 150px;
+            }
+
+            #hierarchy_search_container_5 input,
+            #hierarchy_search_container_5 select {
+                width : 150px;
+            }
+
+            #hierarchy_search_container_6 input,
+            #hierarchy_search_container_6 select {
+                width : 150px;
+            }
+
+            #hierarchy_search_container_4  .hierarchy-search-result-container div {
+                display: inline-block;
+                margin-right: 15px
+            }
+
+            #hierarchy_search_container_5  .hierarchy-search-result-container div {
+                display: inline-block;
+                margin-right: 15px
+            }
+
+            #hierarchy_search_container_6  .hierarchy-search-result-container div {
+                display: inline-block;
+                margin-right: 15px
+            }
+
+            .hierarchy-search label {
+                display:block;
+            }
+            .hierarchy-search .hide {
+                display:none !important;
+            }
+            .results {
+                display:block;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <h1>Demo hierarchy</h1>
+
+        <ul>
+            <li><a href="#example1">Example 1 - With search - First level not visible</a></li>
+            <li><a href="#example2">Example 2 - With search - First level visible</a></li>
+            <li><a href="#example3">Example 3 - Without search</a></li>
+            <li><a href="#example4">Example 4 - Dropdown without search (disabled)</a></li>
+            <li><a href="#example5">Example 5 - Dropdown without search (hide)</a></li>
+            <li><a href="#example6">Example 6 - Dropdown with auto-selection</a></li>
+        </ul>
+
+        <hr />
+
+        <h2><a name="example1">Example 1 - With search - First level not visible</a></h2>
+
+        <hr />
+
+        <div class="hierarchy-search" id="hierarchy_search_container_1">
+            <div class="hierarchy-search-input-container">
+                <label for="hierarchy_search_1">Search:</label>
+                <input type="search" id="hierarchy_search_1"  />
+            </div>
+            <div class="hierarchy-search-result-container">
+                <div>
+                    <label for="hierarchy_level_1_0">Brands:</label>
+                    <select id="hierarchy_level_1_0" size="5"></select>
+                </div>
+                <div class="hide">
+                    <label for="hierarchy_level_1_1">Models:</label>
+                    <select id="hierarchy_level_1_1" size="5"></select>
+                </div>
+                <div class="hide">
+                    <label for="hierarchy_level_1_2">Versions:</label>
+                    <select id="hierarchy_level_1_2" size="5"></select>
+                </div>
+                <div class="hide">
+                    <label for="hierarchy_level_1_3">Options:</label>
+                    <select id="hierarchy_level_1_3" size="5"></select>
+                </div>
+            </div>
+        </div>
+
+        <div id="result_adc_1" class="results">
+            <div>
+                <label for="vehicle_brand_id">Brand id:</label>
+                <input type="text" id="vehicle_brand_id" value="" />
+            </div>
+            <div>
+                <label for="vehicle_model_id">Model id:</label>
+                <input type="text" id="vehicle_model_id" value="" />
+            </div>
+            <div>
+                <label for="vehicle_model_code">Model code:</label>
+                <input type="text" id="vehicle_model_code" value="" />
+            </div>
+            <div>
+                <label for="vehicle_version_id">Version id:</label>
+                <input type="text" id="vehicle_version_id" value=""/>
+            </div>
+            <div>
+                <label for="vehicle_option_id">Option id:</label>
+                <input type="text" id="vehicle_option_id" value=""/>
+            </div>
+            <div>
+                <label for="vehicle_id">Id:</label>
+                <input type="text" id="vehicle_id" value=""/>
+            </div>
+            <div>
+                <label for="vehicle_id">Code:</label>
+                <input type="text" id="vehicle_code" value=""/>
+            </div>
+        </div>
+
+        <hr />
+
+        <h2><a name="example2">Example 2 - With search - First level visible</a></h2>
+
+        <hr />
+
+        <div class="hierarchy-search" id="hierarchy_search_container_2">
+            <div class="hierarchy-search-input-container">
+                <label for="hierarchy_search_2">Search:</label>
+                <input type="search" id="hierarchy_search_2" />
+            </div>
+            <div class="hierarchy-search-result-container">
+                <div>
+                    <label for="hierarchy_level_2_0">Brands:</label>
+                    <select id="hierarchy_level_2_0" size="5"></select>
+                </div>
+                <div>
+                    <label for="hierarchy_level_2_1">Models:</label>
+                    <select id="hierarchy_level_2_1" size="5"></select>
+                </div>
+                <div>
+                    <label for="hierarchy_level_2_2">Versions:</label>
+                    <select id="hierarchy_level_2_2" size="5"></select>
+                </div>
+                <div>
+                    <label for="hierarchy_level_2_3">Options:</label>
+                    <select id="hierarchy_level_2_3" size="5"></select>
+                </div>
+            </div>
+        </div>
+
+        <div id="result_adc_2" class="results">
+            <div>
+                <label for="vehicle2_brand_id">Brand id:</label>
+                <input type="text" id="vehicle2_brand_id" value="" />
+            </div>
+            <div>
+                <label for="vehicle2_model_id">Model id:</label>
+                <input type="text" id="vehicle2_model_id" value="" />
+            </div>
+            <div>
+                <label for="vehicle2_model_code">Model code:</label>
+                <input type="text" id="vehicle2_model_code" value="" />
+            </div>
+            <div>
+                <label for="vehicle2_version_id">Version id:</label>
+                <input type="text" id="vehicle2_version_id" value=""/>
+            </div>
+            <div>
+                <label for="vehicle2_option_id">Option id:</label>
+                <input type="text" id="vehicle2_option_id" value=""/>
+            </div>
+            <div>
+                <label for="vehicle2_id">Id:</label>
+                <input type="text" id="vehicle2_id" value=""/>
+            </div>
+            <div>
+                <label for="vehicle2_id">Code:</label>
+                <input type="text" id="vehicle2_code" value=""/>
+            </div>
+        </div>
+
+        <hr />
+
+        <h2><a name="example3">Example 3 - Without search</a></h2>
+
+        <hr />
+
+        <div class="hierarchy-search" id="hierarchy_search_container_3">
+            <div class="hierarchy-search-result-container">
+                <div>
+                    <label for="hierarchy_level_3_0">Brands:</label>
+                    <select id="hierarchy_level_3_0" size="5"></select>
+                </div>
+                <div>
+                    <label for="hierarchy_level_3_1">Models:</label>
+                    <select id="hierarchy_level_3_1" size="5"></select>
+                </div>
+                <div>
+                    <label for="hierarchy_level_3_2">Versions:</label>
+                    <select id="hierarchy_level_3_2" size="5"></select>
+                </div>
+                <div>
+                    <label for="hierarchy_level_3_3">Options:</label>
+                    <select id="hierarchy_level_3_3" size="5"></select>
+                </div>
+            </div>
+        </div>
+
+        <div id="result_adc_3" class="results">
+            <div>
+                <label for="vehicle3_brand_id">Brand id:</label>
+                <input type="text" id="vehicle3_brand_id" value="" />
+            </div>
+            <div>
+                <label for="vehicle3_model_id">Model id:</label>
+                <input type="text" id="vehicle3_model_id" value="" />
+            </div>
+            <div>
+                <label for="vehicle3_model_code">Model code:</label>
+                <input type="text" id="vehicle3_model_code" value="" />
+            </div>
+            <div>
+                <label for="vehicle3_version_id">Version id:</label>
+                <input type="text" id="vehicle3_version_id" value=""/>
+            </div>
+            <div>
+                <label for="vehicle3_option_id">Option id:</label>
+                <input type="text" id="vehicle3_option_id" value=""/>
+            </div>
+            <div>
+                <label for="vehicle3_id">Id:</label>
+                <input type="text" id="vehicle3_id" value=""/>
+            </div>
+            <div>
+                <label for="vehicle3_id">Code:</label>
+                <input type="text" id="vehicle3_code" value=""/>
+            </div>
+        </div>
+
+        <hr />
+
+        <h2><a name="example4">Example 4 - Dropdown without search (disabled)</a></h2>
+
+        <hr />
+
+        <div class="hierarchy-search" id="hierarchy_search_container_4">
+            <div class="hierarchy-search-result-container">
+                <div>
+                    <label for="hierarchy_level_4_0">Brands:</label>
+                    <select id="hierarchy_level_4_0"></select>
+                </div>
+                <div disabled="disabled">
+                    <label for="hierarchy_level_4_1">Models:</label>
+                    <select id="hierarchy_level_4_1" disabled="disabled"></select>
+                </div>
+                <div disabled="disabled">
+                    <label for="hierarchy_level_4_2">Versions:</label>
+                    <select id="hierarchy_level_4_2" disabled="disabled"></select>
+                </div>
+                <div disabled="disabled">
+                    <label for="hierarchy_level_4_3">Options:</label>
+                    <select id="hierarchy_level_4_3" disabled="disabled"></select>
+                </div>
+            </div>
+        </div>
+
+        <div id="result_adc_4" class="results">
+            <div>
+                <label for="vehicle4_brand_id">Brand id:</label>
+                <input type="text" id="vehicle4_brand_id" value="" />
+            </div>
+            <div>
+                <label for="vehicle4_model_id">Model id:</label>
+                <input type="text" id="vehicle4_model_id" value="" />
+            </div>
+            <div>
+                <label for="vehicle4_model_code">Model code:</label>
+                <input type="text" id="vehicle4_model_code" value="" />
+            </div>
+            <div>
+                <label for="vehicle4_version_id">Version id:</label>
+                <input type="text" id="vehicle4_version_id" value=""/>
+            </div>
+            <div>
+                <label for="vehicle4_option_id">Option id:</label>
+                <input type="text" id="vehicle4_option_id" value=""/>
+            </div>
+            <div>
+                <label for="vehicle4_id">Id:</label>
+                <input type="text" id="vehicle4_id" value=""/>
+            </div>
+            <div>
+                <label for="vehicle4_id">Code:</label>
+                <input type="text" id="vehicle4_code" value=""/>
+            </div>
+        </div>
+
+        <hr />
+
+        <h2><a name="example5">Example 5 - Dropdown without search (hide)</a></h2>
+
+        <hr />
+
+        <div class="hierarchy-search" id="hierarchy_search_container_5">
+            <div class="hierarchy-search-result-container">
+                <div>
+                    <label for="hierarchy_level_5_0">Brands:</label>
+                    <select id="hierarchy_level_5_0"></select>
+                </div>
+                <div class="hide">
+                    <label for="hierarchy_level_5_1">Models:</label>
+                    <select id="hierarchy_level_5_1"></select>
+                </div>
+                <div class="hide">
+                    <label for="hierarchy_level_5_2">Versions:</label>
+                    <select id="hierarchy_level_5_2"></select>
+                </div>
+                <div class="hide">
+                    <label for="hierarchy_level_5_3">Options:</label>
+                    <select id="hierarchy_level_5_3"></select>
+                </div>
+            </div>
+        </div>
+
+        <div id="result_adc_5" class="results">
+            <div>
+                <label for="vehicle5_brand_id">Brand id:</label>
+                <input type="text" id="vehicle5_brand_id" value="" />
+            </div>
+            <div>
+                <label for="vehicle5_model_id">Model id:</label>
+                <input type="text" id="vehicle5_model_id" value="" />
+            </div>
+            <div>
+                <label for="vehicle5_model_code">Model code:</label>
+                <input type="text" id="vehicle5_model_code" value="" />
+            </div>
+            <div>
+                <label for="vehicle5_version_id">Version id:</label>
+                <input type="text" id="vehicle5_version_id" value=""/>
+            </div>
+            <div>
+                <label for="vehicle5_option_id">Option id:</label>
+                <input type="text" id="vehicle5_option_id" value=""/>
+            </div>
+            <div>
+                <label for="vehicle5_id">Id:</label>
+                <input type="text" id="vehicle5_id" value=""/>
+            </div>
+            <div>
+                <label for="vehicle5_code">Code:</label>
+                <input type="text" id="vehicle5_code" value=""/>
+            </div>
+        </div>
+
+
+        <hr />
+
+        <h2><a name="example6">Example 6 - Dropdown with auto-selection</a></h2>
+
+        <hr />
+
+        <div class="hierarchy-search" id="hierarchy_search_container_6">
+            <div class="hierarchy-search-result-container">
+                <div>
+                    <label for="hierarchy_level_6_0">Brands:</label>
+                    <select id="hierarchy_level_6_0"></select>
+                </div>
+                <div>
+                    <label for="hierarchy_level_6_1">Models:</label>
+                    <select id="hierarchy_level_6_1"></select>
+                </div>
+                <div>
+                    <label for="hierarchy_level_6_2">Versions:</label>
+                    <select id="hierarchy_level_6_2"></select>
+                </div>
+                <div>
+                    <label for="hierarchy_level_6_3">Options:</label>
+                    <select id="hierarchy_level_6_3"></select>
+                </div>
+            </div>
+        </div>
+
+        <div id="result_adc_6" class="results">
+            <div>
+                <label for="vehicle6_brand_id">Brand id:</label>
+                <input type="text" id="vehicle6_brand_id" value="" />
+            </div>
+            <div>
+                <label for="vehicle6_model_id">Model id:</label>
+                <input type="text" id="vehicle6_model_id" value="" />
+            </div>
+            <div>
+                <label for="vehicle6_model_code">Model code:</label>
+                <input type="text" id="vehicle6_model_code" value="" />
+            </div>
+            <div>
+                <label for="vehicle6_version_id">Version id:</label>
+                <input type="text" id="vehicle6_version_id" value=""/>
+            </div>
+            <div>
+                <label for="vehicle6_option_id">Option id:</label>
+                <input type="text" id="vehicle6_option_id" value=""/>
+            </div>
+            <div>
+                <label for="vehicle6_id">Id:</label>
+                <input type="text" id="vehicle6_id" value=""/>
+            </div>
+            <div>
+                <label for="vehicle6_code">Code:</label>
+                <input type="text" id="vehicle6_code" value=""/>
+            </div>
+        </div>
+
+        <h2><a name="example1">Example 7 - With custom search (predefined value)- First level not visible</a></h2>
+
+        <hr />
+
+        <div class="hierarchy-search" id="hierarchy_search_container_7">
+            <div class="hierarchy-search-input-container">
+                <label for="custom_search_7">Search:</label>
+                <input type="search" id="custom_search_7"  value="REN" />
+            </div>
+            <div class="hierarchy-search-result-container">
+                <div>
+                    <label for="hierarchy_level_7_0">Brands:</label>
+                    <select id="hierarchy_level_7_0" size="5"></select>
+                </div>
+                <div class="hide">
+                    <label for="hierarchy_level_7_1">Models:</label>
+                    <select id="hierarchy_level_7_1" size="5"></select>
+                </div>
+                <div class="hide">
+                    <label for="hierarchy_level_7_2">Versions:</label>
+                    <select id="hierarchy_level_7_2" size="5"></select>
+                </div>
+                <div class="hide">
+                    <label for="hierarchy_level_7_3">Options:</label>
+                    <select id="hierarchy_level_7_3" size="5"></select>
+                </div>
+            </div>
+        </div>
+
+        <div id="result_adc_7" class="results">
+            <div>
+                <label for="vehicle7_brand_id">Brand id:</label>
+                <input type="text" id="vehicle7_brand_id" value="" />
+            </div>
+            <div>
+                <label for="vehicle7_model_id">Model id:</label>
+                <input type="text" id="vehicle7_model_id" value="" />
+            </div>
+            <div>
+                <label for="vehicle7_model_code">Model code:</label>
+                <input type="text" id="vehicle7_model_code" value="" />
+            </div>
+            <div>
+                <label for="vehicle7_version_id">Version id:</label>
+                <input type="text" id="vehicle7_version_id" value=""/>
+            </div>
+            <div>
+                <label for="vehicle_option_id">Option id:</label>
+                <input type="text" id="vehicle7_option_id" value=""/>
+            </div>
+            <div>
+                <label for="vehicle_id">Id:</label>
+                <input type="text" id="vehicle7_id" value=""/>
+            </div>
+            <div>
+                <label for="vehicle_id">Code:</label>
+                <input type="text" id="vehicle7_code" value=""/>
+            </div>
+        </div>
+
+        <hr />
+
+
+        <script src="../../resources/static/hierarchy.js"></script>
+        <script src="database.js"></script>
+        <script type="text/javascript">
+            (function(){
+
+
+
+                var examples = {
+                    1 : new Hierarchy({
+                        database : Hierarchy.databases["vehicles"],
+                        prefix     : "vehicle_",
+                        searchIn   : ['brand', 'model', 'version', 'option'],
+                        values     : ['version_id', 'option_id', 'id', 'code'],
+                        firstLevelVisible : false,
+                        useSearch  : 1,
+                        minChars   : 2,
+                        instanceId : 1,
+                        maxResults : 100,
+                        visibility : 'hide',
+                        autoSelect : true
+                    }),
+
+                    2 : new Hierarchy({
+                        database : Hierarchy.databases["vehicles"],
+                        prefix     : "vehicle2_",
+                        searchIn   : ['brand', 'model', 'version', 'option'],
+                        values     : ['version_id', 'option_id', 'id', 'code'],
+                        firstLevelVisible : true,
+                        useSearch  : 1,
+                        minChars   : 2,
+                        instanceId : 2,
+                        maxResults : 100,
+                        visibility : 'disabled'
+                    }),
+
+                    3 : new Hierarchy({
+                        database : Hierarchy.databases["vehicles"],
+                        prefix     : "vehicle3_",
+                        searchIn   : ['brand', 'model', 'version', 'option'],
+                        values     : ['version_id', 'option_id', 'id', 'code'],
+                        useSearch  : 0,
+                        minChars   : 2,
+                        instanceId : 3,
+                        maxResults : 100
+                    }),
+
+                    4 : new Hierarchy({
+                        database : Hierarchy.databases["vehicles"],
+                        prefix     : "vehicle4_",
+                        searchIn   : ['brand', 'model', 'version', 'option'],
+                        values     : ['version_id', 'option_id', 'id', 'code'],
+                        dropdowns   : true,
+                        blankOptions     : ["Please select a brand", "Please select a model", "Please select a version", "Please select an option"],
+                        useSearch  : 0,
+                        minChars   : 2,
+                        instanceId : 4,
+                        maxResults : 100,
+                        visibility : 'disabled'
+                    }),
+
+                    5 : new Hierarchy({
+                        database : Hierarchy.databases["vehicles"],
+                        prefix     : "vehicle5_",
+                        searchIn   : ['brand', 'model', 'version', 'option'],
+                        values     : ['version_id', 'option_id', 'id', 'code'],
+                        dropdowns   : true,
+                        blankOptions     : ["Please select a brand", "Please select a model", "Please select a version", "Please select an option"],
+                        useSearch  : 0,
+                        minChars   : 2,
+                        instanceId : 5,
+                        maxResults : 100,
+                        visibility : 'hide'
+                    }),
+
+                    6 : new Hierarchy({
+                        database : Hierarchy.databases["vehicles"],
+                        prefix     : "vehicle6_",
+                        searchIn   : ['brand', 'model', 'version', 'option'],
+                        values     : ['version_id', 'option_id', 'id', 'code'],
+                        dropdowns   : true,
+                        blankOptions     : ["Please select a brand", "Please select a model", "Please select a version", "Please select an option"],
+                        useSearch  : 0,
+                        minChars   : 2,
+                        instanceId : 6,
+                        maxResults : 100,
+                        visibility : 'visible',
+                        autoSelect : true
+                    }),
+
+                    7 : new Hierarchy({
+                        database : Hierarchy.databases["vehicles"],
+                        prefix     : "vehicle7_",
+                        searchIn   : ['brand', 'model', 'version', 'option'],
+                        values     : ['version_id', 'option_id', 'id', 'code'],
+                        firstLevelVisible : false,
+                        useSearch  : 2,
+                        customSearchId : 'custom_search_7',
+                        minChars   : 2,
+                        instanceId : 7,
+                        maxResults : 100,
+                        visibility : 'hide',
+                        autoSelect : true
+                    })
+                };
+
+            }());
+        </script>
+    </body>
+</html>
