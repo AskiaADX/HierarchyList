@@ -9,6 +9,12 @@
   color:inherit;
   text-decoration: none;
  }
+.hierarchylist-search * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 .hierarchy,
 .hierarchylist-search .hierarchy-search-input-container {
     position: relative;

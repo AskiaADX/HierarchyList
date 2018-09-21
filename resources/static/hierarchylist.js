@@ -616,6 +616,7 @@
         addEvent(el, 'click', function (e) {
             var elemLi = e.srcElement;
             if (elemLi.tagName === "A") {
+                e.preventDefault;
                 elemLi = e.srcElement.parentElement;
             }
             self.onselect(index, elemLi.value);
@@ -924,7 +925,7 @@
     if (records.length === 0 && noFound.trim().length > 0) {
       opts.push('<li value="0" disabled="disabled">' + noFound + '</li>');
     } else if (records.length === 1 && this.autoSelect) {
-      opts.push('<li value="' + records[0][levelIdIndex] + '" selected="selected"><a href="#" tabindex="0">' + records[0][levelNameIndex] + '</a></li>');
+      opts.push('<li value="' + records[0][levelIdIndex] + '" selected="selected"><a href="#" tabindex="0" onclick="return false">' + records[0][levelNameIndex] + '</a></li>');
     } else {
       if (maxResults > 0) {
         maxResults -= opts.length;
@@ -940,7 +941,7 @@
         if (!selectedValueDone && attrSelected) {
           selectedValueDone = true;
         }
-        opts.push('<li value="' + value + '"' + attrSelected + '><a href="#" tabindex="0">' + records[i][levelNameIndex] + '</a></li>');
+        opts.push('<li value="' + value + '"' + attrSelected + '><a href="#" tabindex="0" onclick="return false">' + records[i][levelNameIndex] + '</a></li>');
         added[value] = true;
 
         if (selectedValueDone && maxResults && opts.length >= maxResults) {
