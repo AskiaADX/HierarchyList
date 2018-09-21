@@ -16,9 +16,9 @@ EndIf
     <div class="hierarchy-search-input-container">
         <label for="hierarchy_search_{%= id %}">{%:= CurrentADC.PropValue("searchLabel")%}</label>
         {% If CurrentADC.PropValue("useSearch") = "3" and CurrentADC.PropValue("filterFirstLevel") <> "" Then %}
-        <input type="search" id="hierarchy_filtered_search_{%= id %}" autocomplete="off" style="display:none;" />
+        <input type="search" id="hierarchy_filtered_search_{%= id %}" autocomplete="nope" style="display:none;" />
         {% EndIf %}
-        <input type="search" id="hierarchy_search_{%= id %}" autocomplete="off" />
+        <input type="search" id="hierarchy_search_{%= id %}" autocomplete="nope" />
     </div>
     {% EndIf %}
     <div class="hierarchy-search-result-container">
