@@ -611,14 +611,52 @@
         if (!Element.prototype.matches) {
             Element.prototype.matches = Element.prototype.msMatchesSelector;
         }
-
+		
+        
+        function handleKeys (e, el) {
+            e.preventDefault();
+            var items = el.querySelectorAll('a');
+            var amount = Math.floor(
+                el.offsetWidth / 
+                el.firstElementChild.offsetWidth
+            );
+            var codes = {
+                38: -amount,
+                40: amount, 
+                39: amount,
+                37: -amount
+            };
+            for (var i = 0; i < items.length; i++) {
+                items[i].index = i;
+            }
+            var keycode = e.keyCode;
+            if (codes[keycode]) {
+                var t = e.target;
+                if (t.index !== undefined) {
+                    if (items[t.index + codes[keycode]]) {
+                        items[t.index + codes[keycode]].focus();
+                    }
+                }
+            } else if (keycode === 13) {
+                e.stopPropagation();
+                e.target.click();
+            } else if (keycode === 32) {
+            	e.target.click();
+            }
+        }
         // Add event listener
+        addEvent(el, 'keydown', 
+                 (function (passedInElement) {
+            return function (e) {
+                handleKeys(e, passedInElement); 
+            };
+        }(el)));
         addEvent(el, 'click', function (e) {
             var elemLi = e.srcElement;
             if (elemLi.tagName === "A") {
-                e.preventDefault;
                 elemLi = e.srcElement.parentElement;
             }
+            if (elemLi.value === undefined) return;
             self.onselect(index, elemLi.value);
             for (var i = 0, j = e.currentTarget.children.length; i < j; i++) {
                 if (e.currentTarget.children[i].matches('li[selected="selected"]')) {

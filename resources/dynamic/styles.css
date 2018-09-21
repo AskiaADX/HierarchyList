@@ -18,11 +18,17 @@
 #hierarchy_search_container_{%= CurrentADC.InstanceId%} ul > li {
     background-color: rgba({%:= Theme.WhiteColor %});
     color: rgba({%:= Theme.BlackColor %});
-	padding: 5px;
 	border-radius: {%:= Theme.BorderRadius %};
     border: 0 solid transparent;
 	outline: none !important;
     cursor:pointer;
+}
+#hierarchy_search_container_{%= CurrentADC.InstanceId%} ul > li a {
+    padding: 5px;
+    height: 100%;
+    display: block;
+    border-radius: {%:= Theme.BorderRadius %};
+    border: 0 solid transparent;
 }
 #hierarchy_search_container_{%= CurrentADC.InstanceId%} ul > li[selected="selected"] {
     background-color: rgba({%:= Theme.SecondaryColor %}) !important;
@@ -64,6 +70,11 @@ li[disabled] {
 #hierarchy_search_container_{%= CurrentADC.InstanceId%} li:hover {
     background-color: rgba({%:= Theme.BlackColor.ToRGB() %},0.1);
     color: rgba({%:= Theme.BlackColor %});
+}
+#hierarchy_search_container_{%= CurrentADC.InstanceId%} li:not([selected="selected"]) a:focus {
+  outline: none;
+  background-color: rgba({%:= Theme.BlackColor.ToRGB() %},0.1);
+  color: rgba({%:= Theme.BlackColor %});
 }
 {% EndIf %}
 #hierarchy_search_container_{%= CurrentADC.InstanceId%} li:selected, 
