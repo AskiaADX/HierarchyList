@@ -9,7 +9,9 @@
   color:inherit;
   text-decoration: none;
  }
-.hierarchylist-search * {
+.hierarchylist-search ul,
+.hierarchylist-search li,
+.hierarchylist-search a {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;

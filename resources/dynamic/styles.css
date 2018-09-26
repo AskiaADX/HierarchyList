@@ -12,8 +12,23 @@
 	outline: none !important;
 }
 #hierarchy_search_container_{%= CurrentADC.InstanceId%} ul {
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: scroll;
+    list-style-type: none;
+    box-sizing: border-box;
     height: {%:= CurrentADC.PropValue("heightList")%};
+}
+#hierarchy_search_container_{%= CurrentADC.InstanceId%} ul::-webkit-scrollbar {
+    width: 5px;
+}
+
+#hierarchy_search_container_{%= CurrentADC.InstanceId%} ul::-webkit-scrollbar-thumb {
+    border-radius: {%:= Theme.BorderRadius %};
+    background-color: rgba({%:= Theme.BlackColor.ToRGB() %},0.1);
+}
+#hierarchy_search_container_{%= CurrentADC.InstanceId%} ul::-webkit-scrollbar-track {
+    border: 0px solid transparent;
+    padding: 1px 0;
 }
 #hierarchy_search_container_{%= CurrentADC.InstanceId%} ul > li {
     background-color: rgba({%:= Theme.WhiteColor %});
