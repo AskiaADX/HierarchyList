@@ -7,7 +7,7 @@
   <info>
     <name>HierarchyList</name>
     <guid>1aa47ea0-493a-41c3-a64f-28e30b2f9cef</guid>
-    <version>2.0.6</version>
+    <version>3.0.0</version>
     <date>2016-01-28</date>
     <description><![CDATA[Use relative database to create hierarchical search.
         Use the following page to generate the database:
@@ -26,7 +26,7 @@
       <category>Search</category>
     </categories>
     <constraints>
-      <constraint on="questions" chapter="true" date="false" multiple="false" numeric="false" open="false" requireParentLoop="false" single="false" />
+      <constraint on="questions" chapter="true" date="false" multiple="false" numeric="false" open="false" requireParentLoop="false" single="false" RequireLoopDepth="false" />
       <constraint on="controls" label="true" checkbox="false" listbox="false" radiobutton="false" responseblock="false" textbox="false" />
       <constraint on="responses" max="*" min="*" />
     </constraints>
