@@ -26,13 +26,13 @@
       <category>Search</category>
     </categories>
     <constraints>
-      <constraint on="questions" chapter="true" date="false" multiple="false" numeric="false" open="false" requireParentLoop="false" single="false" RequireLoopDepth="0" />
+      <constraint on="questions" chapter="true" date="false" multiple="false" numeric="false" open="false" requireParentLoop="false" single="false" requireLoopDepth="0" />
       <constraint on="controls" label="true" checkbox="false" listbox="false" radiobutton="false" responseblock="false" textbox="false" />
       <constraint on="responses" max="*" min="*" />
     </constraints>
   </info>
   <outputs defaultOutput="default">
-    <output id="fallback" ManageLoopDepth="0">
+    <output id="fallback" manageLoopDepth="0">
       <description><![CDATA[Javascript is not enable]]></description>
       <condition><![CDATA[
         
@@ -41,7 +41,7 @@
       ]]></condition>
       <content fileName="NotSupportedBrowser.html" type="html" mode="dynamic" position="placeholder" />
     </output>
-    <output id="default" ManageLoopDepth="0">
+    <output id="default" manageLoopDepth="0">
       <description><![CDATA[
         Javascript is enable
       ]]></description>
