@@ -7,7 +7,7 @@
 		values: [{%:= CurrentADC.PropValue("values")%}],
 		prefix: "{%:= CurrentADC.PropValue("prefix")%}",
 		dropdowns: {%= On(CurrentADC.PropValue("dropDownSize").ToNumber() > 1, "false", "true")%},
-		blankOptions: {%:= On(CurrentADC.PropValue("blankOptions") <> "", "[" + CurrentADC.PropValue("blankOptions") + "]", "null")%}, 
+		blankOptions: {%:= On(CurrentADC.PropValue("blankOptions") <> "", "[" + CurrentADC.PropValue("blankOptions") + "]", "null")%},
 		useSearch: {%= CurrentADC.PropValue("useSearch")%},
         filterFirstLevel: "{%= CurrentADC.PropValue("filterFirstLevel")%}",
 		customSearchId : "{%= CurrentADC.PropValue("customSearchId")%}",
@@ -20,6 +20,7 @@
         currentQuestion: "{%:= CurrentQuestion.Shortcut %}",
         noMatchFound: "{%:= CurrentADC.PropValue("noMatchFound")%}",
         sortFirst: "{%:= CurrentADC.PropValue("sortFirst") %}",
-        searchPhonetic: "{%:= CurrentADC.PropValue("searchPhonetic") %}"
+        searchPhonetic: "{%:= CurrentADC.PropValue("searchPhonetic") %}",
+				listHeightDynamic: {%:= CurrentADC.PropValue("listHeightDynamic")%}
 	});
 } ());

@@ -7,15 +7,15 @@
   <info>
     <name>HierarchyList</name>
     <guid>1aa47ea0-493a-41c3-a64f-28e30b2f9cef</guid>
-    <version>3.0.0</version>
-    <date>2016-01-28</date>
+    <version>3.0.1</version>
+    <date>2020-05-27</date>
     <description><![CDATA[Use relative database to create hierarchical search.
         Use the following page to generate the database:
-        
+
         http://www.askia.com/Downloads/dev/adc/hierarchy/CSVConverter.html
-        
+
         Tested in, major modern browser.
-          
+
         Dependencies:
           - Database file generated with http://www.askia.com/Downloads/dev/adc/hierarchy/CSVConverter.html]]></description>
     <company>Askia SAS</company>
@@ -35,9 +35,9 @@
     <output id="fallback" manageLoopDepth="0">
       <description><![CDATA[Javascript is not enable]]></description>
       <condition><![CDATA[
-        
+
           not(Browser.Support("javascript"))
-        
+
       ]]></condition>
       <content fileName="NotSupportedBrowser.html" type="html" mode="dynamic" position="placeholder" />
     </output>
@@ -46,9 +46,9 @@
         Javascript is enable
       ]]></description>
       <condition><![CDATA[
-        
-          browser.support("Javascript") 
-      
+
+          browser.support("Javascript")
+
       ]]></condition>
       <content fileName="hierarchylist.css" type="css" mode="static" position="head" />
       <content fileName="styles.css" type="css" mode="dynamic" position="head" />
@@ -83,7 +83,7 @@ example: item!!CI(1)!!]]></description>
         <value></value>
       </property>
       <property xsi:type="standardProperty" id="levelNames" name="Display name of levels" type="string" mode="dynamic" require="true" visible="true">
-        <description><![CDATA[Label of the dropdown for each levels. 
+        <description><![CDATA[Label of the dropdown for each levels.
 Each level must have a display names even if it's an empty name.
 All names must be surrounded by a double-quotes and separate with coma.
 example: "Brands", "Models", "Versions"]]></description>
@@ -122,6 +122,14 @@ example: "Please select a brands", "Please select a models", "Please select a ve
       <property xsi:type="standardProperty" id="heightList" name="Height of the list" type="string" mode="dynamic" require="true" visible="true">
         <description><![CDATA[Height of the list]]></description>
         <value><![CDATA[250px]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="listHeightDynamic" name="List height dynamic" type="string" mode="dynamic" require="true" visible="true">
+        <description><![CDATA[Dynamically change the list height]]></description>
+        <value><![CDATA[no]]></value>
+        <options>
+          <option value="1" text="Yes" />
+          <option value="0" text="No" />
+        </options>
       </property>
     </category>
     <category id="searchCategory" name="Search">
