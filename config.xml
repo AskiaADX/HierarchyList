@@ -7,8 +7,8 @@
   <info>
     <name>HierarchyList</name>
     <guid>1aa47ea0-493a-41c3-a64f-28e30b2f9cef</guid>
-    <version>3.0.1</version>
-    <date>2020-05-27</date>
+    <version>3.0.2</version>
+    <date>2020-05-29</date>
     <description><![CDATA[Use relative database to create hierarchical search.
         Use the following page to generate the database:
 
@@ -126,6 +126,14 @@ example: "Please select a brands", "Please select a models", "Please select a ve
       <property xsi:type="standardProperty" id="listHeightDynamic" name="List height dynamic" type="string" mode="dynamic" require="true" visible="true">
         <description><![CDATA[Dynamically change the list height]]></description>
         <value><![CDATA[no]]></value>
+        <options>
+          <option value="1" text="Yes" />
+          <option value="0" text="No" />
+        </options>
+      </property>
+      <property xsi:type="standardProperty" id="responseInList" name="Response must match" type="string" mode="dynamic" require="true" visible="true">
+        <description><![CDATA[The response must match one of the responses of the database]]></description>
+        <value><![CDATA[1]]></value>
         <options>
           <option value="1" text="Yes" />
           <option value="0" text="No" />

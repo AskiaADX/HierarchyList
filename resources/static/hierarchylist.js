@@ -252,7 +252,7 @@
 
     return theClone;
   }
-    
+
     /**
    * Sort the array alphabetically matching the beginning of string then alphabetically for contained text object or array
    * @param {Object|Array} input the first input to search
@@ -271,7 +271,7 @@
         }
         return(first.concat(others));
     }
-    
+
     /**
    * Replace the accent by the non accent version and replace y by i for phonetic search
    */
@@ -281,15 +281,15 @@
 		/Ì/g, /Í/g, /Î/g, /Ï/g, /Ð/g, /Ñ/g, /Ò/g, /Ó/g, /Ô/g, /Õ/g, /Ö/g, /Ø/g, /Ù/g, /Ú/g, /Û/g, /Ü/g, /Ý/g,
 		/Þ/g, /ß/g, /à/g, /á/g, /â/g, /ã/g, /ä/g, /å/g, /æ/g, /ç/g, /è/g, /é/g, /ê/g, /ë/g, /ì/g, /í/g, /î/g,
 		/ï/g, /ð/g, /ñ/g, /ò/g, /ó/g, /ô/g, /õ/g, /ö/g, /ø/g, /ù/g, /ú/g, /û/g, /ü/g, /ý/g, /ý/g, /þ/g, /ÿ/g);
- 
+
 		// Array without accents
 		var pattern_replace_accent = new Array("A","A","A","A","A","A","A","C","E","E","E","E",
 		"I","I","I","I","D","N","O","O","O","O","O","O","U","U","U","U","I",
 		"b","s","a","a","a","a","a","a","a","c","e","e","e","e","i","i","i",
 		"i","d","n","o","o","o","o","o","o","u","u","u","u","i","i","b","i");
-        
+
         var my_string = this;
- 
+
 		//For each caracters if accent remplace it by his non accent version
 		for(var i=0;i<pattern_accent.length;i++){
 			my_string = my_string.replace(pattern_accent[i],pattern_replace_accent[i]);
@@ -421,6 +421,7 @@
     this.noMatchFound = options.noMatchFound || '';
     this.sortFirst = options.sortFirst;
     this.searchPhonetic = options.searchPhonetic;
+    this.responseInList = options.responseInList;
 
     filterFirstLevel = options.filterFirstLevel;
     searchSeparator = options.searchSeparator;
@@ -607,22 +608,22 @@
 
       // Load previous selection
       this.loadSelection(level, index);
-        
+
         if (!Element.prototype.matches) {
             Element.prototype.matches = Element.prototype.msMatchesSelector;
         }
-		
-        
+
+
         function handleKeys (e, el) {
             e.preventDefault();
             var items = el.querySelectorAll('a');
             var amount = Math.floor(
-                el.offsetWidth / 
+                el.offsetWidth /
                 el.firstElementChild.offsetWidth
             );
             var codes = {
                 38: -amount,
-                40: amount, 
+                40: amount,
                 39: amount,
                 37: -amount
             };
@@ -645,10 +646,10 @@
             }
         }
         // Add event listener
-        addEvent(el, 'keydown', 
+        addEvent(el, 'keydown',
                  (function (passedInElement) {
             return function (e) {
-                handleKeys(e, passedInElement); 
+                handleKeys(e, passedInElement);
             };
         }(el)));
         addEvent(el, 'click', function (e) {
@@ -660,10 +661,13 @@
             self.onselect(index, elemLi.value);
             for (var i = 0, j = e.currentTarget.children.length; i < j; i++) {
                 if (e.currentTarget.children[i].matches('li[selected="selected"]')) {
-                    e.currentTarget.children[i].removeAttribute("selected");   
+                    e.currentTarget.children[i].removeAttribute("selected");
                 }
             }
             if (!elemLi.matches('li[disabled="disabled"]')) elemLi.setAttribute('selected', 'selected');
+            if (options.responseInList == 1 & elemLi.value !== undefined) {
+              document.getElementById(searchId).value = elemLi.textContent;
+            }
         });
         addEvent(el, 'search', function (e) {
             var elemLi = e.srcElement;
@@ -673,7 +677,7 @@
             self.onselect(index, elemLi.value);
             for (var i = 0, j = e.currentTarget.children.length; i < j; i++) {
                 if (e.currentTarget.children[i].matches('li[selected="selected"]')) {
-                    e.currentTarget.children[i].removeAttribute("selected");   
+                    e.currentTarget.children[i].removeAttribute("selected");
                 }
             }
             if (!elemLi.matches('li[disabled="disabled"]')) elemLi.setAttribute('selected', 'selected');
@@ -689,12 +693,12 @@
         element: document.getElementById(this.prefix + value)
       });
     }, this);
-    
+
     // Manage Filter first level options
     if (this.useSearch === 3) {
         var search = document.querySelector("#hierarchy_search_" + this.instanceId);
         var selectedRow = '';
-      
+
         if (filterFirstLevel === document.getElementById(this.levels[0].name).value && this.levels[1]) {
             selectedRow = document.getElementById(this.levels[1].name).value;
         }
@@ -712,11 +716,11 @@
 
   /**
    * Search the string in the database
-   * 
+   *
    * @param {String} value Value to search
    */
   Hierarchy.prototype.search = function search(value) {
-    
+
     // Don't fire it twice
     if (this.currentValue === value) {
       return;
@@ -757,7 +761,7 @@
    * @param {SearchProcess} searchProcess
    */
   Hierarchy.prototype.done = function done(searchProcess) {
-    // Verify if the search is still eligible 
+    // Verify if the search is still eligible
     if (searchProcess.value !== this.currentValue) {
       return;
     }
@@ -880,11 +884,12 @@
       nextLevelIndex = levelIndex + 1,
       nextLevel = (nextLevelIndex < levels.length) ? levels[nextLevelIndex] : null,
       hasValue = (id !== "");
-      
+
     var customsearch = document.querySelector("#hierarchy_search_container_" + this.instanceId + " #hierarchy_filtered_search_" + this.instanceId);
     var searchInput = document.querySelector("#hierarchy_search_container_" + this.instanceId + " #hierarchy_search_" + this.instanceId);
-      
+
     if (levelIndex === 0 && this.useSearch === 3 && searchResult === 2) {
+
       // Manage Filter first level options
       document.querySelector("#hierarchy_search_container_" + this.instanceId + " .hierarchy-search-result-container div:first-child").style.display = "none";
       searchInput.style.display = "none";
@@ -959,7 +964,7 @@
       i, l,
       maxResults = this.maxResults;
       var noFound = this.options.noMatchFound;
-	
+
     if (records.length === 0 && noFound.trim().length > 0) {
       opts.push('<li value="0" disabled="disabled">' + noFound + '</li>');
     } else if (records.length === 1 && this.autoSelect) {
@@ -1004,7 +1009,7 @@
       triggerEvent(level.element.firstElementChild, 'search');
     }
   };
-    
+
 
   /**
    * Set the values on the outputs
@@ -1148,7 +1153,7 @@
       if (this.hierarchy.searchPhonetic === 'yes') {
         pattern = this.escapeRegExp(values[i].trim().withoutAccent());
       } else {
-        pattern = this.escapeRegExp(values[i].trim());   
+        pattern = this.escapeRegExp(values[i].trim());
       }
       if (this.searchAtBeginning) {
         pattern = '^' + pattern;
@@ -1165,11 +1170,11 @@
    */
   SearchProcess.prototype.isFieldMatch = function isFieldMatch(fieldIndex) {
     this.rg.lastIndex = 0; // Reset the search
-      
+
     if (this.searchPhonetic === 'yes') {
       return this.rg.test(this.record[fieldIndex].withoutAccent());
     } else {
-      return this.rg.test(this.record[fieldIndex]);   
+      return this.rg.test(this.record[fieldIndex]);
     }
   };
 
@@ -1193,7 +1198,7 @@
     if (!record) {
       return false;
     }
-
+    
     return every(this.regexps, this.isRegexpMatch, {
       searchFieldIndexes: this.searchFieldIndexes,
       isFieldMatch: this.isFieldMatch,
@@ -1208,9 +1213,9 @@
    */
   SearchProcess.prototype.search = function search() {
       if (this.sortFirst === 'yes') {
-        this.results = sortInputFirst(this.value.split(this.searchSeparator)[0], filter(this.records, this.isRecordMatch, this),this.hierarchy.options.database.header[this.hierarchy.levels[0].name],this.searchPhonetic);  
+        this.results = sortInputFirst(this.value.split(this.searchSeparator)[0], filter(this.records, this.isRecordMatch, this),this.hierarchy.options.database.header[this.hierarchy.levels[0].name],this.searchPhonetic);
       } else {
-        this.results = filter(this.records, this.isRecordMatch, this);  
+        this.results = filter(this.records, this.isRecordMatch, this);
       }
     if (this.results.length > 0 && this.results[0][1] === this.results[this.results.length - 1][1]) {
         searchResult = 2;

@@ -21,6 +21,7 @@
         noMatchFound: "{%:= CurrentADC.PropValue("noMatchFound")%}",
         sortFirst: "{%:= CurrentADC.PropValue("sortFirst") %}",
         searchPhonetic: "{%:= CurrentADC.PropValue("searchPhonetic") %}",
+				responseInList: {%:= CurrentADC.PropValue("responseInList")%},
 				listHeightDynamic: {%:= CurrentADC.PropValue("listHeightDynamic")%}
 	});
 } ());
