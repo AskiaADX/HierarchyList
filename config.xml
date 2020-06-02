@@ -125,7 +125,7 @@ example: "Please select a brands", "Please select a models", "Please select a ve
       </property>
       <property xsi:type="standardProperty" id="listHeightDynamic" name="List height dynamic" type="string" mode="dynamic" require="true" visible="true">
         <description><![CDATA[Dynamically change the list height]]></description>
-        <value><![CDATA[no]]></value>
+        <value><![CDATA[0]]></value>
         <options>
           <option value="1" text="Yes" />
           <option value="0" text="No" />

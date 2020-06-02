@@ -665,7 +665,7 @@
                 }
             }
             if (!elemLi.matches('li[disabled="disabled"]')) elemLi.setAttribute('selected', 'selected');
-            if (options.responseInList == 1 & elemLi.value !== undefined) {
+            if (options.responseInList == 1 & elemLi.value !== undefined & document.getElementById(searchId) !== undefined) {
               document.getElementById(searchId).value = elemLi.textContent;
             }
         });
@@ -1198,7 +1198,7 @@
     if (!record) {
       return false;
     }
-    
+
     return every(this.regexps, this.isRegexpMatch, {
       searchFieldIndexes: this.searchFieldIndexes,
       isFieldMatch: this.isFieldMatch,
