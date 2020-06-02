@@ -665,7 +665,7 @@
                 }
             }
             if (!elemLi.matches('li[disabled="disabled"]')) elemLi.setAttribute('selected', 'selected');
-            if (options.responseInList == 1 & elemLi.value !== undefined & document.getElementById(searchId) !== undefined) {
+            if (options.responseInList == 1 & elemLi.value !== undefined & document.getElementById(searchId) !== null) {
               document.getElementById(searchId).value = elemLi.textContent;
             }
         });
