@@ -16,8 +16,10 @@
     overflow-y: scroll;
     list-style-type: none;
     box-sizing: border-box;
+    min-height: 2em;
     {% IF CurrentADC.PropValue("listHeightDynamic") = "1" Then %}
       height: auto;
+      max-height: {%:= CurrentADC.PropValue("heightList") %};
     {% Else %}
       height: {%:= CurrentADC.PropValue("heightList") %};
     {% EndIf %}
