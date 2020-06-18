@@ -665,7 +665,7 @@
                 }
             }
             if (!elemLi.matches('li[disabled="disabled"]')) elemLi.setAttribute('selected', 'selected');
-            if (options.responseInList == 1 & elemLi.value !== undefined & document.getElementById(searchId) !== null) {
+            if ((options.responseInList == 1) & (elemLi.value !== undefined) & (document.getElementById(searchId) !== null) & (elemLi.textContent !== options.noMatchFound)) {
               document.getElementById(searchId).value = elemLi.textContent;
             }
         });
