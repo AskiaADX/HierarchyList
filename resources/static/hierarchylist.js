@@ -1,6 +1,8 @@
 (function () {
   "use strict";
 
+  var noMatchFound = true;
+  var recordNotSelected = true;
   var dom = {
     /**
      * Indicates if the dom is ready
@@ -431,6 +433,17 @@
     dom.ready(function init() {
       self.initialize();
     });
+
+    var responseInList = this.responseInList;
+    var nextButton = document.querySelectorAll('.navigation')[0].children[1];
+    var searchId = (this.useSearch === searchType.custom) ? this.customSearchId : "hierarchy_search_" + this.instanceId;
+
+    if (nextButton !== undefined) {
+      nextButton.onmousedown = function(){
+        if (responseInList){if (noMatchFound | recordNotSelected) {document.getElementById(searchId).value = '';}}
+      }
+    }
+
   }
 
   /**
@@ -641,8 +654,12 @@
             } else if (keycode === 13) {
                 e.stopPropagation();
                 e.target.click();
+                recordNotSelected = false;
+                noMatchFound = false;
             } else if (keycode === 32) {
             	e.target.click();
+              recordNotSelected = false;
+              noMatchFound = false;
             }
         }
         // Add event listener
@@ -653,6 +670,8 @@
             };
         }(el)));
         addEvent(el, 'click', function (e) {
+            recordNotSelected = false;
+
             var elemLi = e.srcElement;
             if (elemLi.tagName === "A") {
                 elemLi = e.srcElement.parentElement;
@@ -850,6 +869,8 @@
         return (record[levelIdIndex] === value);
       }, this);
     } else if (previousLevelIndex !== null && previousValue) {
+      recordNotSelected = false;
+
       records = filter(records, function (record) {
         return (record[previousLevelIdIndex] === previousValue);
       }, this);
@@ -857,6 +878,7 @@
 
     // No records found
     if (!records.length) {
+      noMatchFound = true;
       if (levelIndex === 0) {
         this.resetFirstLevel();
       }
@@ -877,6 +899,8 @@
    * @param {String} id Id of the selected item
    */
   Hierarchy.prototype.onselect = function onselect(levelIndex, id) {
+    recordNotSelected = false;
+
     var levels = this.levels,
       level = levels[levelIndex],
       levelIdIndex = this.header[level.id],
@@ -966,10 +990,14 @@
       var noFound = this.options.noMatchFound;
 
     if (records.length === 0 && noFound.trim().length > 0) {
+      noMatchFound = true;
       opts.push('<li value="0" disabled="disabled">' + noFound + '</li>');
     } else if (records.length === 1 && this.autoSelect) {
+      noMatchFound = false;
       opts.push('<li value="' + records[0][levelIdIndex] + '" selected="selected"><a href="#" tabindex="0" onclick="return false">' + records[0][levelNameIndex] + '</a></li>');
     } else {
+      noMatchFound = false;
+
       if (maxResults > 0) {
         maxResults -= opts.length;
       }
