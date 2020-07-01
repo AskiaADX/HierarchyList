@@ -435,14 +435,16 @@
     });
 
     var responseInList = this.responseInList;
-    var nextButton = document.querySelectorAll('.navigation')[0].children[1];
+    // var nextButton = document.querySelectorAll('.navigation')[0].children[1];
     var searchId = (this.useSearch === searchType.custom) ? this.customSearchId : "hierarchy_search_" + this.instanceId;
 
-    if (nextButton !== undefined) {
-      nextButton.onmousedown = function(){
+    var askiaForm = document.querySelectorAll('[name="FormAskia"]')[0];
+
+    // if (nextButton !== undefined) {
+      askiaForm.onsubmit = function(){
         if (responseInList){if (noMatchFound | recordNotSelected) {document.getElementById(searchId).value = '';}}
       }
-    }
+    // }
 
   }
 
@@ -879,6 +881,8 @@
     // No records found
     if (!records.length) {
       noMatchFound = true;
+      recordNotSelected = true;
+
       if (levelIndex === 0) {
         this.resetFirstLevel();
       }
@@ -991,12 +995,15 @@
 
     if (records.length === 0 && noFound.trim().length > 0) {
       noMatchFound = true;
+      recordNotSelected = true;
       opts.push('<li value="0" disabled="disabled">' + noFound + '</li>');
     } else if (records.length === 1 && this.autoSelect) {
       noMatchFound = false;
+      recordNotSelected = false;
       opts.push('<li value="' + records[0][levelIdIndex] + '" selected="selected"><a href="#" tabindex="0" onclick="return false">' + records[0][levelNameIndex] + '</a></li>');
     } else {
       noMatchFound = false;
+      recordNotSelected = true;
 
       if (maxResults > 0) {
         maxResults -= opts.length;
